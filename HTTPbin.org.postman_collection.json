@@ -13,7 +13,11 @@
 					"script": {
 						"exec": [
 							"const response = pm.response.json();",
-							"pm.globals.set(\"orderId\", response.uuid);"
+							"pm.globals.set(\"orderId\", response.uuid);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
 						],
 						"type": "text/javascript"
 					}
